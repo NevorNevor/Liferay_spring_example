@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="portlet2:war">
+    <output-path>$PROJECT_DIR$/portlet2/target</output-path>
+    <root id="archive" name="liferay.spring.test5-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="portlet2:war exploded" />
+    </root>
+  </artifact>
+</component>
