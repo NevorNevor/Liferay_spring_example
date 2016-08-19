@@ -18,6 +18,7 @@ import com.liferay.portal.kernel.util.ReleaseInfo;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.portlet.bind.annotation.ActionMapping;
@@ -48,12 +49,22 @@ public class PortletViewController {
 		System.out.println("###################### ACTION ###############");
 	}
 
+	@ActionMapping("error")
+	public void error() throws RuntimeException {
+		throw new RuntimeException();
+	}
+
 	@ActionMapping("event")
 	public void event(ActionResponse response, ActionRequest request){
 		PortletPreferences pref = request.getPreferences();
 		QName actionEvent = new QName("actionEvent");
 		String greeting = pref.getValue("greeting","Greeting is null");
 		response.setEvent(actionEvent, greeting);
+	}
+
+	@ExceptionHandler(Exception.class)
+	public String handleException(){
+		return "liferay.spring.test1/error";
 	}
 
 }

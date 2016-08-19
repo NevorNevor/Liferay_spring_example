@@ -8,6 +8,8 @@
 
 <portlet:actionURL name="action" var="actionUrl"></portlet:actionURL>
 <portlet:actionURL name="event" var="eventUrl"></portlet:actionURL>
+<portlet:actionURL name="error" var="errorUrl"></portlet:actionURL>
+<a href="<%= errorUrl%>">Error</a>
 <a href="<%= eventUrl%>">Event</a>
 <br>
 <aui:form action="<%= actionUrl %>" method="post">
